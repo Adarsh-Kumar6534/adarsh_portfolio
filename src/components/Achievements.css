@@ -1,0 +1,136 @@
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.achievement-card {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    position: relative;
+    text-decoration: none;
+    cursor: default;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.clickable-card {
+    cursor: pointer;
+}
+
+.clickable-card:hover .link-icon {
+    opacity: 1;
+    transform: translate(3px, -3px);
+}
+
+.achievement-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.link-icon {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    color: var(--accent);
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    z-index: -1;
+    border: 1px solid transparent;
+}
+
+.achievement-card:hover::before {
+    box-shadow: 0 0 30px rgba(0, 245, 212, 0.2);
+    animation: pulse-glow 2s infinite;
+    border-color: rgba(0, 245, 212, 0.4);
+}
+
+.achievement-icon {
+    color: var(--accent);
+    padding: 12px;
+    background: rgba(0, 245, 212, 0.1);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+    transition: all 0.3s ease;
+    will-change: transform;
+}
+
+.achievement-card:hover .achievement-icon {
+    background: var(--accent);
+    color: #0A0F1C;
+    box-shadow: 0 0 25px rgba(0, 245, 212, 0.6);
+    transform: scale(1.1);
+}
+
+.achievement-number {
+    font-size: 30px;
+    /* Scaled down slightly to fit 'Patent Published' cleanly */
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.achievement-title {
+    font-size: 14px;
+    color: var(--accent-secondary);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Custom Tooltip Logic for Problems Breakdown */
+.achievement-card[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--bg-gradient-mid);
+    color: var(--text-primary);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 245, 212, 0.3);
+    z-index: 10;
+}
+
+.achievement-card[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+@media (max-width: 1024px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

@@ -1,0 +1,171 @@
+.experience-section {
+    position: relative;
+}
+
+.timeline.single-node {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+/* The vertical glowing line */
+.timeline.single-node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9px;
+    width: 2px;
+    background: var(--glass-border);
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+}
+
+@keyframes slow-pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 245, 212, 0.4), 0 0 0 0 rgba(0, 245, 212, 0.2);
+    }
+
+    70% {
+        box-shadow: 0 0 20px rgba(0, 245, 212, 0.8), 0 0 0 15px rgba(0, 245, 212, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(0, 245, 212, 0.4), 0 0 0 0 rgba(0, 245, 212, 0);
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 32px;
+    left: -41px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.pulse-glow {
+    animation: slow-pulse 2.5s infinite;
+}
+
+.timeline-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.exp-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.exp-icon {
+    color: var(--accent);
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.exp-badge {
+    background: rgba(0, 245, 212, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.org-name {
+    font-size: 18px;
+    color: var(--accent-secondary);
+    font-weight: 500;
+}
+
+.duration {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid var(--glass-border);
+}
+
+.exp-description {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.tech-stack-line {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.tech-stack-line strong {
+    color: var(--accent);
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Hover Dynamics */
+.timeline-content:hover .exp-badge {
+    background: var(--accent);
+    color: #0A0F1C;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+@media (max-width: 768px) {
+    .timeline.single-node {
+        padding-left: 30px;
+    }
+
+    .timeline.single-node::before {
+        left: 4px;
+    }
+
+    .timeline-dot {
+        left: -36px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .timeline-content {
+        padding: 24px;
+    }
+}
