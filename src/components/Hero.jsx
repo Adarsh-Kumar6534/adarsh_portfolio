@@ -9,7 +9,7 @@ const Hero = () => {
                     <h1 className="hero-title reveal" style={{ transitionDelay: '0.1s' }}>
                         Adarsh Kumar
                     </h1>
-                    <p className="hero-subtitle reveal" style={{ transitionDelay: '0.2s', color: 'var(--accent)', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                    <p className="hero-subtitle reveal" style={{ transitionDelay: '0.2s', color: 'var(--accent)', fontWeight: '600', letterSpacing: '0.5px' }}>
                         Data Science and Financial Systems Engineer
                     </p>
                     <p className="body-text reveal" style={{ transitionDelay: '0.3s', maxWidth: '600px' }}>

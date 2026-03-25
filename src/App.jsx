@@ -9,6 +9,7 @@ import Certifications from './components/Certifications';
 import Achievements from './components/Achievements';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import MouseGlow from './components/MouseGlow';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <MouseGlow />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero />
       <About />
