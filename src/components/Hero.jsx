@@ -17,7 +17,7 @@ const Hero = () => {
                     </p>
                     <div className="hero-buttons reveal" style={{ transitionDelay: '0.4s' }}>
                         <a href="#work" className="btn btn-primary glow-btn ripple-effect">View Work</a>
-                        <a href="/Adarsh_Kumar_CV.pdf" download className="btn btn-secondary glass-btn ripple-effect">Download CV</a>
+                        <a href="/resources/Adarsh_Kumar_CV.pdf" download className="btn btn-secondary glass-btn ripple-effect">Download CV</a>
                     </div>
                 </div>
 

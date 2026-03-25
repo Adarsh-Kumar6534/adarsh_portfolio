@@ -59,10 +59,18 @@
   padding: 0;
 }
 
+@keyframes dynamic-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: var(--text-primary);
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  background-size: 200% 200%;
+  animation: dynamic-bg 15s ease infinite;
   background-attachment: fixed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -106,81 +114,21 @@ body::after {
 }
 
 /* Typography Hierarchy */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-}
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { font-family: inherit; border: none; background: none; cursor: pointer; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-button {
-  font-family: inherit;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  color: var(--text-secondary);
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  letter-spacing: -0.5px;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.body-text {
-  font-size: 16px;
-  color: var(--text-secondary);
-}
-
-.small-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-}
+.hero-title { font-size: 48px; font-weight: 700; letter-spacing: -1px; }
+.hero-subtitle { font-size: 18px; color: var(--text-secondary); }
+.section-title { font-size: 28px; font-weight: 600; margin-bottom: 32px; letter-spacing: -0.5px; }
+.card-title { font-size: 18px; font-weight: 600; }
+.body-text, .small-text { font-size: 16px; color: var(--text-secondary); }
 
 /* Layout Utilities */
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-.section {
-  padding: var(--section-padding) 0;
-  margin-bottom: var(--section-gap);
-}
-
-.section-alt {
-  padding: 80px 0;
-  margin-bottom: var(--section-gap);
-  position: relative;
-}
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--container-padding); }
+.section { padding: var(--section-padding) 0; margin-bottom: var(--section-gap); }
+.section-alt { padding: 80px 0; margin-bottom: var(--section-gap); position: relative; }
 
 /* Global Glass Card Base */
 .glass-card {
@@ -190,13 +138,13 @@ button {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-default);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .glass-card:hover {
-  transform: scale(1.04) translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(0, 245, 212, 0.4);
+  transform: scale(1.06) translateY(-8px);
+  box-shadow: 0 15px 35px var(--glass-glow), inset 0 0 15px var(--glass-glow);
+  border-color: rgba(0, 230, 195, 0.7);
 }
 
 [data-theme="light"] .glass-card:hover {

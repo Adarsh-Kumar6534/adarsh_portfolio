@@ -1,15 +1,13 @@
 /* Hero visual floating animation */
 @keyframes float {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1);
     }
-
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-25px) scale(1.03);
     }
-
     100% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1);
     }
 }
 
